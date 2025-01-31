@@ -1,14 +1,19 @@
 "use client";
 
+import { Status } from "@/constants";
 import { useState } from "react";
 
-function SearchBar() {
+type SearchBarProps = {
+  handleSearch: (searchText: string, status: Status) => void;
+};
+
+function SearchBar({ handleSearch }: SearchBarProps) {
   const [searchText, setSearchText] = useState("");
-  const [status, setStatus] = useState<"OPEN" | "CLOSED" | "ALL">("ALL");
+  const [status, setStatus] = useState(Status.ALL);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(searchText);
+    handleSearch(searchText, status);
   };
 
   return (
@@ -18,12 +23,12 @@ function SearchBar() {
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
         placeholder="Search issues..."
-        className="w-full p-2 border rounded-lg"
+        className="w-full bg-white p-2 border rounded-lg"
       />
       <select
         value={status}
-        onChange={(e) => setStatus(e.target.value as "OPEN" | "CLOSED" | "ALL")}
-        className="p-2 border rounded-lg"
+        onChange={(e) => setStatus(e.target.value as Status)}
+        className="p-2 bg-white border rounded-lg"
       >
         <option value="ALL">All</option>
         <option value="OPEN">Open</option>

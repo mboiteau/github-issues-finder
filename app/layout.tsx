@@ -1,3 +1,4 @@
+import ApolloProviderWrapper from "@/components/ApolloProviderWrapper";
 import "./globals.css";
 
 export default function RootLayout({
@@ -7,7 +8,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={"p-4 antialiased"}>{children}</body>
+      <body className={"p-4 antialiased"}>
+        {<ApolloProviderWrapper>{children}</ApolloProviderWrapper>}
+      </body>
     </html>
   );
 }
