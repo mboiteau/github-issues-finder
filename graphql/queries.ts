@@ -14,6 +14,42 @@ export const SEARCH_ISSUES = gql`
             login
             avatarUrl
           }
+          repository {
+            name
+            owner {
+              login
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_ISSUE = gql`
+  query GetIssue($owner: String!, $name: String!, $number: Int!) {
+    repository(owner: $owner, name: $name) {
+      issue(number: $number) {
+        id
+        number
+        title
+        body
+        state
+        createdAt
+        author {
+          login
+          avatarUrl
+        }
+        comments(first: 100) {
+          nodes {
+            id
+            body
+            createdAt
+            author {
+              login
+              avatarUrl
+            }
+          }
         }
       }
     }

@@ -1,4 +1,4 @@
-import ApolloProviderWrapper from "@/components/ApolloProviderWrapper";
+import { ApolloProviderWrapper } from "@/components";
 import "./globals.css";
 
 export default function RootLayout({
