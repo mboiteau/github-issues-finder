@@ -33,6 +33,7 @@ export const SEARCH_ISSUES = gql`
 export const GET_ISSUE = gql`
   query GetIssue($owner: String!, $name: String!, $number: Int!) {
     repository(owner: $owner, name: $name) {
+      id
       issue(number: $number) {
         id
         number

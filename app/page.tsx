@@ -59,7 +59,9 @@ function Home() {
 
   return (
     <>
-      <h1 className="mb-4 text-xl font-bold">Github issues finder</h1>
+      <h1 className="mb-4 text-xl max-w-4xl mx-auto font-bold">
+        Github issues finder
+      </h1>
       <SearchBar handleSearch={handleSearch} />
       <InfiniteScroll
         dataLength={issues?.length || 0}
