@@ -26,7 +26,7 @@ function Home() {
     setSearchQuery(
       `${initialQuery}${searchText ? ` ${searchText} in:title,body` : ""}${
         status !== Status.ALL ? ` is:${status}` : ""
-      } `
+      }`
     );
   };
 
